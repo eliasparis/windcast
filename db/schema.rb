@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527083827) do
+ActiveRecord::Schema.define(version: 20160529160826) do
 
   create_table "tags", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20160527083827) do
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "media_id"
+    t.string   "provider"
   end
 
 end
