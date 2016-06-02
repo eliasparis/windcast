@@ -10,7 +10,7 @@ class VideosController < ApplicationController
 	end
 
 	def create
-		Video.create(title: params[:title],url: params[:url] ,media_id: params[:video_id]  ,provider: params[:provider_name])
+		Video.create(title: params[:title],url: params[:url] ,media_id: params[:media_id]  ,provider: params[:provider_name])
 		head :ok
 	end
 
