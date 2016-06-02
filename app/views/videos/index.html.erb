@@ -1,10 +1,14 @@
 <h1>hola</h1>
 
-	<div class="plyr">
-	    <div data-video-id="bTqVqk7FSmY" data-type="youtube"></div>
-	</div>
-
 <% @videos.each do |video| %>
+
 	<h5><%= video.title %></h5>
 	<h6><%= video.url %></h6>
+	<div class="plyr">
+	    <div 
+	    	data-video-id="<%= video.media_id %>" 
+	    	data-type="<%= video.provider %>">
+	    </div>
+	</div>
+	
 <% end %>
