@@ -5,7 +5,7 @@ class VideosController < ApplicationController
   	after_filter :cors_set_access_control_headers, only: [:create]
 
 	def index
-		@videos = Video.all
+		@video = Video.main_videos[0]
 		render 'index'
 	end
 

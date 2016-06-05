@@ -10,7 +10,30 @@ class Video < ActiveRecord::Base
 				media_id: params[:media_id], 
 				provider: params[:provider],
 				publication_date: publication_date)
+	end
 
+	def self.main_videos
+		
+		publicables = Video.all.as_json
+		videos = []
+
+		puts 'ssdfsfs'
+		puts publicables
+		puts 'dfdsfsdfs'
+
+		videos[0] = publicables.first
+		videos[1] = publicables.shift
+
+
+		puts videos[0]
+		puts videos[1]
+
+		return videos
+	end
+
+	def publicables
+		
+		return Video.where("publication_date <= ?", Date.today).to_a
 	end
 
 	def publication_builder
