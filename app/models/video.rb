@@ -14,26 +14,19 @@ class Video < ActiveRecord::Base
 
 	def self.main_videos
 		
-		publicables = Video.all.as_json
+		publicables = Video.new.publicables
 		videos = []
 
-		puts 'ssdfsfs'
-		puts publicables
-		puts 'dfdsfsdfs'
-
-		videos[0] = publicables.first
-		videos[1] = publicables.shift
-
-
-		puts videos[0]
-		puts videos[1]
+		videos[0] = publicables[0]
+		publicables.to_a.shift 
+		videos[1] = publicables
 
 		return videos
 	end
 
 	def publicables
 		
-		return Video.where("publication_date <= ?", Date.today).to_a
+		return Video.where("publication_date <= ?", Date.today)
 	end
 
 	def publication_builder

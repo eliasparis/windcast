@@ -1,11 +1,14 @@
 <h1>hola</h1>
 
-	<h5><%= video.title %></h5>
-	<h6><%= video.url %></h6>
+	<h5><%= @video.title %></h5>
+	<h6><%= @video.url %></h6>
 	<div class="plyr">
 	    <div 
-	    	data-video-id="<%= video.media_id %>" 
-	    	data-type="<%= video.provider %>">
+	    	data-video-id="<%= @video.media_id %>" 
+	    	data-type="<%= @video.provider %>">
 	    </div>
 	</div>
 	
+	<%= javascript_tag do %>
+	  	window.playlist = <%= raw @playlist %>
+	<% end %>
