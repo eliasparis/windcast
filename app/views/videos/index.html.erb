@@ -1,7 +1,6 @@
 <h1>hola</h1>
 
-	<h5><%= @video.title %></h5>
-	<h6><%= @video.url %></h6>
+	<h5 id="main_title"><%= @video.title %></h5>
 	<div class="plyr">
 	    <div 
 	    	data-video-id="<%= @video.media_id %>" 
@@ -9,12 +8,17 @@
 	    </div>
 	</div>
 	
+	<div id="prev_video">
+		<h2>Prev one</h2>
+	</div>
+
 	<div id="next_video">
 		<h2>Next one</h2>
-		<span><%= @playlist[0].title %></span>
-		<%= image_tag(@playlist[0].thumbnail, :alt => "rss feed", :width => '250px') %>
+		<span id="next_title"><%= @playlist[0].title %></span>
+		<%= image_tag(@playlist[0].thumbnail, :alt => "rss feed", :width => '250px', :id => "next_thumb") %>
 	</div>
 
 	<%= javascript_tag do %>
 	  	window.playlist = <%= raw @playlist.to_json %>
+	  	window.playlist_shadow = []
 	<% end %>
