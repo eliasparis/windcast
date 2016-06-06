@@ -9,6 +9,12 @@
 	    </div>
 	</div>
 	
+	<div id="next_video">
+		<h2>Next one</h2>
+		<span><%= @playlist[0].title %></span>
+		<%= image_tag(@playlist[0].thumbnail, :alt => "rss feed", :width => '250px') %>
+	</div>
+
 	<%= javascript_tag do %>
-	  	window.playlist = <%= raw @playlist %>
+	  	window.playlist = <%= raw @playlist.to_json %>
 	<% end %>

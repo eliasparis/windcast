@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160603095522) do
+ActiveRecord::Schema.define(version: 20160606115007) do
 
   create_table "tags", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -27,6 +27,9 @@ ActiveRecord::Schema.define(version: 20160603095522) do
     t.string   "media_id"
     t.string   "provider"
     t.date     "publication_date"
+    t.string   "thumbnail"
+    t.string   "author"
+    t.string   "author_url"
   end
 
 end

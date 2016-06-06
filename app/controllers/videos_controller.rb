@@ -5,10 +5,11 @@ class VideosController < ApplicationController
   	after_filter :cors_set_access_control_headers, only: [:create]
 
 	def index
+
 		video_list = Video.main_videos
 
 		@video = video_list[0]
-		@playlist = video_list[1].to_json
+		@playlist = video_list[1]
 
 		render 'index'
 	end
@@ -37,7 +38,7 @@ class VideosController < ApplicationController
 
 	private
 	def video_params
-		params.require(:video).permit(:title, :url, :media_id, :provider)	
+		params.require(:video).permit(:title, :url, :media_id, :provider, :thumbnail, :author, :author_url)	
 	end
 
 end

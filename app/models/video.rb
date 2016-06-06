@@ -9,6 +9,9 @@ class Video < ActiveRecord::Base
 				url: params[:url], 
 				media_id: params[:media_id], 
 				provider: params[:provider],
+				thumbnail: params[:thumbnail],
+				author: params[:author],
+				author_url: params[:author_url],
 				publication_date: publication_date)
 	end
 
