@@ -35,13 +35,16 @@ var videoController = {
 	updateVideo: function(context, next){
 
 		var nextVideo;
+		var autoplay;
 
 		if (next) {
 
 			nextVideo = playlist[0];
+			autoplay = true;
 		}else if(!next){
 			
 			nextVideo = playlist_shadow[1];
+			autoplay = false;
 		}else{
 			
 			return false;
@@ -50,11 +53,12 @@ var videoController = {
 		var sourceObj = {
 			type: 'video',
 			title: nextVideo.title,
+			autoplay: autoplay,
 			sources: [{
 				src: nextVideo.media_id,
 				type: nextVideo.provider
 			}]
-		}
+		};
 
 		context.source(sourceObj);
 		playListManager.updatePLaylist(next);
