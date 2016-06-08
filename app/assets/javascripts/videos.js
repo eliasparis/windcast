@@ -10,15 +10,18 @@ $(document).on('ready', function(){
 	var player = document.querySelector('.plyr');
 	var player_el = document.querySelector('.plyr').plyr;
 	var nextButton = document.getElementById('next_video');
+	var previousButton = document.getElementById('prev_video'); 
 	
 	player.addEventListener('ended', function(event) {
-
-		videoController.updateVideo(player_el);
+		videoController.updateVideo(player_el, true);
 	});
 
 	nextButton.addEventListener('click', function(event) {
+		videoController.updateVideo(player_el, true);
+	});
 
-		videoController.updateVideo(player_el);
+	previousButton.addEventListener('click', function(event) {
+		videoController.updateVideo(player_el, false);
 	});
 
 	//Ui elements
@@ -29,36 +32,45 @@ $(document).on('ready', function(){
 
 var videoController = {
 
-	updateVideo: function(context){
-		
-		if (playlist[0]) {
+	updateVideo: function(context, next){
 
-			var nextVideo = playlist[0];
-			var sourceObj = {
-				type: 'video',
-				title: nextVideo.title,
-				sources: [{
-					src: nextVideo.media_id,
-					type: nextVideo.provider
-				}]
-			}
+		var nextVideo;
 
-			context.source(sourceObj);
-			playListManager.updatePLaylist(true);
+		if (next) {
+
+			nextVideo = playlist[0];
+		}else if(!next){
+			
+			nextVideo = playlist_shadow[1];
 		}else{
-
+			
 			return false;
 		};
+
+		var sourceObj = {
+			type: 'video',
+			title: nextVideo.title,
+			sources: [{
+				src: nextVideo.media_id,
+				type: nextVideo.provider
+			}]
+		}
+
+		context.source(sourceObj);
+		playListManager.updatePLaylist(next);
 	},
 };
 
 var playListManager = {
 
-	updatePLaylist : function(fromNext){
+	updatePLaylist: function(fromNext){
 
 		if (fromNext) {
 			this.addPrevious();
 			this.removeJustPlayed();
+		}else{
+			this.addNext();
+			this.removeLastShadow();
 		};
 
 		uiManager.updateUi();
@@ -70,6 +82,14 @@ var playListManager = {
 
 	removeJustPlayed : function(){
 		playlist.shift();
+	},
+
+	addNext: function(){
+		playlist.unshift(playlist_shadow[0]);
+	},
+
+	removeLastShadow: function(){
+		playlist_shadow.shift();
 	},
 };
 

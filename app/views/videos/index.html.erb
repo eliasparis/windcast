@@ -20,5 +20,5 @@
 
 	<%= javascript_tag do %>
 	  	window.playlist = <%= raw @playlist.to_json %>
-	  	window.playlist_shadow = []
+	  	window.playlist_shadow = [<%= raw @video.to_json %>]
 	<% end %>
