@@ -7,7 +7,7 @@ class Video < ActiveRecord::Base
 
 		publication_date = Video.new.publication_builder
 
-		Video.create(
+		video = Video.create(
 				title: params[:title], 
 				url: params[:url], 
 				media_id: params[:media_id], 
@@ -16,6 +16,13 @@ class Video < ActiveRecord::Base
 				author: params[:author],
 				author_url: params[:author_url],
 				publication_date: publication_date)
+
+		
+		params[:tagsIds].each do |tag|
+
+			video.videotags.create(tag: tag)
+		end
+
 	end
 
 	def self.main_videos
