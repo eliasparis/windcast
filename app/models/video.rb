@@ -1,5 +1,8 @@
 class Video < ActiveRecord::Base
 
+	has_many :videotags
+  	has_many :tags, through: :videotags
+
 	def self.addvideo params
 
 		publication_date = Video.new.publication_builder
