@@ -15,7 +15,8 @@ class VideosController < ApplicationController
 	end
 
 	def create
-		Video.addvideo(video_params)
+
+		Video.addvideo(video_params, params[:tagsIds])
 		head :ok
 	end
 
@@ -38,7 +39,7 @@ class VideosController < ApplicationController
 
 	private
 	def video_params
-		params.require(:video).permit(:title, :url, :media_id, :provider, :thumbnail, :author, :author_url, :tagsIds)	
+		params.require(:video).permit(:title, :url, :media_id, :provider, :thumbnail, :author, :author_url)	
 	end
 
 end

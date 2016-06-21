@@ -3,7 +3,7 @@ class Video < ActiveRecord::Base
 	has_many :videotags
   	has_many :tags, through: :videotags
 
-	def self.addvideo params
+	def self.addvideo params, tagIds
 
 		publication_date = Video.new.publication_builder
 
@@ -17,10 +17,12 @@ class Video < ActiveRecord::Base
 				author_url: params[:author_url],
 				publication_date: publication_date)
 
-		
-		params[:tagsIds].each do |tag|
+		puts tagIds
 
-			video.videotags.create(tag: tag)
+		tagIds.each do |tag|
+
+			tagElm = Tag.find(tag.to_i)
+			video.videotags.create(tag: tagElm)
 		end
 
 	end
