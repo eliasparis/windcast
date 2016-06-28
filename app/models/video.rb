@@ -17,8 +17,6 @@ class Video < ActiveRecord::Base
 				author_url: params[:author_url],
 				publication_date: publication_date)
 
-		puts tagIds
-
 		tagIds.each do |tag|
 
 			tagElm = Tag.find(tag.to_i)
