@@ -24,7 +24,7 @@ module Windcast
     config.active_record.raise_in_transactional_callbacks = true
 
     config.action_dispatch.default_headers = {
-        'Access-Control-Allow-Origin' => '*',
+        'Access-Control-Allow-Origin' => 'chrome-extension://*',
         'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
     }
 
