@@ -13,18 +13,13 @@
 
 ActiveRecord::Schema.define(version: 20160620100614) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "tags", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "video_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  add_index "tags", ["video_id"], name: "index_tags_on_video_id"
-
-  create_table "tags_videos", id: false, force: :cascade do |t|
-    t.integer "video_id", null: false
-    t.integer "tag_id",   null: false
+    t.string   "name"
   end
 
   create_table "videos", force: :cascade do |t|
