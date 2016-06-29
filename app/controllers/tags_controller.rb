@@ -18,7 +18,7 @@ class TagsController < ApplicationController
 		headers['Access-Control-Allow-Origin'] = '*'
 		headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
 		headers['Access-Control-Request-Method'] = '*'
-		headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+		headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override'
 	end
 
 	def cors_preflight_check
@@ -26,7 +26,7 @@ class TagsController < ApplicationController
 			headers['Access-Control-Allow-Origin'] = '*'
 			headers['Access-Control-Allow-Methods'] = 'POST, PUT, DELETE, GET, OPTIONS'
 			headers['Access-Control-Request-Method'] = '*'
-			headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+			headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-HTTP-Method-Override'
 		    render :text => '', :content_type => 'text/plain'
 		end
 	end
