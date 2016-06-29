@@ -1,9 +1,8 @@
 class VideosController < ApplicationController
 
 	skip_before_action :verify_authenticity_token,	only: [:create]
-	before_filter :cors_preflight_check, only: [:create]
-  	after_filter :cors_set_access_control_headers, only: [:create]
-
+	before_filter :cors_preflight_check
+  	after_filter :cors_set_access_control_headers
 	def index
 
 		video_list = Video.main_videos
