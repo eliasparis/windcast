@@ -39,7 +39,7 @@ class Video < ActiveRecord::Base
 
 	def publicables
 		
-		return Video.where("publication_date <= ?", Date.today)
+		return Video.where("publication_date <= ?", Date.today).reverse_order
 	end
 
 	def publication_builder
