@@ -22,22 +22,29 @@ chrome.runtime.onMessage.addListener(function (msg, sender, response) {
 
   		var length = msg.mensaje.length - 1;
 
-  		for (var i = 0; i <= length; i++) {
+  		if (msg.mensaje.length === 0) {
 
-	  		var xhr = new XMLHttpRequest();
+  			chrome.runtime.sendMessage({from: 'bg', subject: 'tags ready', mensaje: tagsIds});
+  		}else{
 
-	  		xhr.open("POST", 'http://localhost:3000/tags', false);
-	  		xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
-			xhr.send(JSON.stringify(msg.mensaje[i]));
-			
-			tagsIds.push(parseInt(xhr.responseText));
-			numTags++
+	  		for (var i = 0; i <= length; i++) {
 
-			if ((length + 1) === numTags) {
+		  		var xhr = new XMLHttpRequest();
 
-  				chrome.runtime.sendMessage({from: 'bg', subject: 'tags ready', mensaje: tagsIds});
-			};  
+		  		xhr.open("POST", 'http://localhost:3000/tags', false);
+		  		xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+				xhr.send(JSON.stringify(msg.mensaje[i]));
+				
+				tagsIds.push(parseInt(xhr.responseText));
+				numTags++
+
+				if ((length + 1) === numTags) {
+
+	  				chrome.runtime.sendMessage({from: 'bg', subject: 'tags ready', mensaje: tagsIds});
+				};  
+	  		};
   		};
+
   	};
 });
 
