@@ -1,12 +1,25 @@
-<h1><%= t('hello') %></h1>
+	<h1><%= t('hello') %></h1>
 
-	<h5 id="main_title"><%= @video.title %></h5>
-	<div class="plyr">
-	    <div 
-	    	data-video-id="<%= @video.media_id %>" 
-	    	data-type="<%= @video.provider %>">
-	    </div>
+	<div id="video_wrapper">
+		<div class="plyr video_element">
+		    <div 
+		    	data-video-id="<%= @video.media_id %>" 
+		    	data-type="<%= @video.provider %>">
+		    </div>
+		</div>
+		<h3 id="main_title"><%= @video.title %></h3>
+		<div>
+			<a 
+				href="<%= @video.author_url %>"
+				target="_blank">
+				<h5 id="author">
+					<%= t('mainvideo_from') %>
+					<span class="author_title"><%= @video.author%></span>
+				</h5>
+			</a>
+		</div>
 	</div>
+
 	
 	<div id="prev_video">
 		<h2>Prev one</h2>
