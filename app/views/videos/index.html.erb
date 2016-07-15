@@ -32,6 +32,6 @@
 	</div>
 
 	<%= javascript_tag do %>
-	  	window.playlist = <%= raw @playlist.to_json %>
-	  	window.playlist_shadow = [<%= raw @video.to_json %>]
+	  	window.playlist = <%= raw @playlist.to_json(include: [:tags => { :except => [:created_at, :updated_at, :id]}]) %>
+	  	window.playlist_shadow = [<%= raw @video.to_json(include: [:tags => { :except => [:created_at, :updated_at, :id]}]) %>]
 	<% end %>
