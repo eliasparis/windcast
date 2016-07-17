@@ -1,3 +1,7 @@
+$blue: #41e1d0;
+$orange: #ff8d50;
+$pink: #ff1591;
+
 #discover_more{
 
 	width: 100%;
@@ -10,18 +14,47 @@
 		min-height: 20px;
 
 		&:before{
-			font-size: 1.7em;
-			position: absolute;
-			-webkit-transform: translateX(-50%);
-			-moz-transform: translateX(-50%);
-			-ms-transform: translateX(-50%);
-			-o-transform: translateX(-50%);
-			transform: translateX(-50%);
-			top: 0;
+			font-size: 1.9em;
+			-webkit-transform: translateY(-150%);
+			-moz-transform: translatY(-150%);
+			-ms-transform: translateY(-150%);
+			-o-transform: translateY(-150%);
+			transform: translateY(-150%);
+			display: block;
+			opacity: 0;
+			animation: arrow 1.2s linear;
+			animation-iteration-count: infinite;
 		}
 	}
 
 	h5{
 		color: #979797
+	}
+}
+
+@keyframes arrow{
+	0%{
+		opacity: 0;
+		color: $orange;
+	}
+	20%{
+		opacity: 1
+	}
+
+	45%{
+		color: $pink
+	}
+	75%{
+		color: $blue;
+	}
+	95%{
+		opacity: 0;
+	}
+	100%{
+		-webkit-transform: translateY(-000%);
+		-moz-transform: translatY(-000%);
+		-ms-transform: translateY(-000%);
+		-o-transform: translateY(-000%);
+		transform: translateY(-000%);
 	}
 }
