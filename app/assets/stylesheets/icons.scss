@@ -2,11 +2,11 @@
 
 @font-face {
   font-family: "iconset";
-  src:url("fonts/iconset.eot");
-  src:url("fonts/iconset.eot?#iefix") format("embedded-opentype"),
-    url("fonts/iconset.woff") format("woff"),
-    url("fonts/iconset.ttf") format("truetype"),
-    url("fonts/iconset.svg#iconset") format("svg");
+  src:font-url("iconset.eot");
+  src:font-url("iconset.eot?#iefix") format("embedded-opentype"),
+    font-url("iconset.woff") format("woff"),
+    font-url("iconset.ttf") format("truetype"),
+    font-url("iconset.svg#iconset") format("svg");
   font-weight: normal;
   font-style: normal;
 

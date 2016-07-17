@@ -4,7 +4,23 @@
 	display: block;
 	text-align: center;
 	margin: 4em 0em 1em 0em;
+	position: relative;
 	
+	.arrow{
+		min-height: 20px;
+
+		&:before{
+			font-size: 1.7em;
+			position: absolute;
+			-webkit-transform: translateX(-50%);
+			-moz-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+			transform: translateX(-50%);
+			top: 0;
+		}
+	}
+
 	h5{
 		color: #979797
 	}
