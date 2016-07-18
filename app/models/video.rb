@@ -2,6 +2,7 @@ class Video < ActiveRecord::Base
 
 	has_many :videotags
   	has_many :tags, through: :videotags
+  	validates :url, uniqueness: true
 
 	def self.addvideo params, tagIds
 
