@@ -29,10 +29,12 @@ class Video < ActiveRecord::Base
 	def self.main_videos
 		
 		publicables = Video.new.publicables
+
 		videos = []
 
 		videos[0] = publicables[0]
-		publicables.to_a.shift 
+		publicables.to_a.shift
+
 		videos[1] = publicables
 
 		return videos
@@ -51,7 +53,7 @@ class Video < ActiveRecord::Base
 		if reference < today
 			return today
 		else
-			return reference + Random.new.rand(3)
+			return reference + Random.new.rand(2)
 		end
 	end
 

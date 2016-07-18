@@ -1,0 +1,17 @@
+$pink_text: #FF3AA2;
+
+html.dark{
+	background-color: #2C2A30;
+	color: #EDEDED;
+
+	#video_wrapper{
+		
+		#author{
+			
+			.author_title{
+				color: $pink_text;
+			}
+		}
+	}
+
+}

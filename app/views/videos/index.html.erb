@@ -1,12 +1,37 @@
-<h1><%= t('hello') %></h1>
+	<h1><%= t('hello') %></h1>
 
-	<h5 id="main_title"><%= @video.title %></h5>
-	<div class="plyr">
-	    <div 
-	    	data-video-id="<%= @video.media_id %>" 
-	    	data-type="<%= @video.provider %>">
-	    </div>
+	<div id="video_wrapper">
+		<div class="plyr video_element">
+		    <div 
+		    	data-video-id="<%= @video.media_id %>" 
+		    	data-type="<%= @video.provider %>">
+		    </div>
+		</div>
+		<div id="titles">
+			<h3 id="main_title"><%= @video.title %></h3>
+			<a 
+				href="<%= @video.author_url %>"
+				target="_blank">
+				<h5 id="author">
+					<%= t('mainvideo_from') %>
+					<span class="author_title"><%= @video.author%></span>
+				</h5>
+			</a>
+		</div>
+		<div id="tags">
+			<ul>
+				<%@video.tags.each do |tag| %>
+					<a href="tags/<%= tag.id %>">
+						<li class="tag_element<%= rand(1..6) %>">
+							<%= tag.name %>
+						</li>
+					</a>
+				<% end %>
+			</ul>
+		</div>
 	</div>
+
+	<%= render "shared/discovermore" %>
 	
 	<div id="prev_video">
 		<h2>Prev one</h2>
@@ -19,6 +44,6 @@
 	</div>
 
 	<%= javascript_tag do %>
-	  	window.playlist = <%= raw @playlist.to_json %>
-	  	window.playlist_shadow = [<%= raw @video.to_json %>]
+	  	window.playlist = <%= raw @playlist.to_json(include: [:tags => { :except => [:created_at, :updated_at]}]) %>
+	  	window.playlist_shadow = [<%= raw @video.to_json(include: [:tags => { :except => [:created_at, :updated_at]}]) %>]
 	<% end %>
