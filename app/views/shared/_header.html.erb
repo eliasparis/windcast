@@ -1,3 +1,23 @@
 <header>
-	<%= t('home') %>
+	<div class="logo">
+		<a href="/">
+			<img src="/logos/logo-small.png" alt="Windcast logotype">
+		</a>
+	</div>
+	<div class="breadcrum">
+		<ul>
+			<a href="/">
+				<li>
+					<h1>windcast</h1>
+				</li>
+			</a>
+			<% breadcrum.each do |bread|%>
+				<a href="<%= bread[:href] %>">
+					<li>
+						<h2><%= bread[:title] %></h2>
+					</li>
+				</a>
+			<% end %>
+		</ul>
+	</div>
 </header>

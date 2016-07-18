@@ -1,5 +1,6 @@
-	<%= render "shared/header" %>
+<%= render "shared/header" , breadcrum: [{title: "playlist", href: "/"}]  %>
 
+<section>
 	<div id="video_wrapper">
 		<div class="plyr video_element">
 		    <div 
@@ -30,9 +31,10 @@
 			</ul>
 		</div>
 	</div>
+</section>
 
-	<%= render "shared/discovermore" %>
-	
+<%= render "shared/discovermore"%>
+
 	<div id="prev_video">
 		<h2>Prev one</h2>
 	</div>
