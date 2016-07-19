@@ -1,0 +1,16 @@
+<section id="controls">
+<!-- 	<div id="prev_video">
+		<div id="prev_video">
+		<span>Prev one</span>
+	</div> -->
+
+	<div id="next_video" class="controls_content next">
+		<div class="data">
+			<p class="controls_title"><%= t('next_video') %></p>
+			<p id="next_title"><%= @playlist[0].title %></p>
+			<%= image_tag(@playlist[0].thumbnail, :alt => "rss feed", :width => '250px', :id => "next_thumb") %>
+		</div>
+		<div class="icon-right-open-big icon"></div>
+	</div>
+
+</section>

@@ -3,4 +3,32 @@ header{
 	.logo{
 		text-align: center;
 	}
+
+	.breadcrum{
+		margin: 0.2em 0 1em 0;
+		
+		ul{
+			li{
+				display: inline-block;
+				position: relative;
+				padding-left: 20px;
+				
+				&:before{
+					font-family: 'iconset';
+					content: "\73";
+					position: absolute;
+					left: 0px;
+					top: -1px;
+				}
+			}
+
+			li.windcasthref{
+				padding-left: 0;
+
+				&:before{
+					content: "";
+				}
+			}
+		}
+	}
 }

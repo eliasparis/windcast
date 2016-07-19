@@ -1,14 +1,46 @@
+$blue: #41e1d0;
+$orange: #ff8d50;
 $pink_text: #FF3AA2;
+$gray: #979797;
+$dark_text: #424045;
+$white: #EDEDED;
 
 html.dark{
 	background-color: #2C2A30;
-	color: #EDEDED;
+	color: $white;
+
+	header{
+		.breadcrum{
+			ul{
+				li{
+					color: $gray;
+
+					&:before{
+						color: $pink_text;
+					}
+				}
+			}
+		}
+	}
 
 	#video_wrapper{
 		
 		#author{
 			
 			.author_title{
+				color: $pink_text;
+			}
+		}
+	}
+
+	#controls{
+		.controls_content{
+			.data{
+				background-color: $white;
+				color: $dark_text;
+			}
+
+			.icon{
 				color: $pink_text;
 			}
 		}

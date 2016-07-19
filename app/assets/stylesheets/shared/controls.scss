@@ -1,0 +1,49 @@
+$arrow_top: 50%;
+$font_size: 35px;
+$arrow_margin_top: $font-size / 2 * -1;
+
+#controls{
+	position: relative;
+
+	.controls_content{
+		display: block;
+
+		&.next{
+			margin-left: -6%;
+
+			.icon{
+				right: 0;
+			}
+		}
+
+		&.previous{
+			margin-right: -6%;
+		}
+
+		div{
+			display: inline-block;
+
+			&.data{
+				width: 85%;	
+				padding: 1em;
+
+				.controls_title{
+					text-transform: uppercase;
+				    font-size: 12px;
+    				letter-spacing: 2px;
+				}
+
+				img{
+					display: none;
+				}
+			}
+
+			&.icon{
+				position: absolute;
+				font-size: $font-size;
+				top: $arrow_top;
+				margin-top: $arrow_margin_top;
+			}
+		}
+	}
+}

@@ -35,17 +35,9 @@
 
 <%= render "shared/discovermore"%>
 
-	<div id="prev_video">
-		<h2>Prev one</h2>
-	</div>
+<%= render "shared/controls"%>
 
-	<div id="next_video">
-		<h2>Next one</h2>
-		<span id="next_title"><%= @playlist[0].title %></span>
-		<%= image_tag(@playlist[0].thumbnail, :alt => "rss feed", :width => '250px', :id => "next_thumb") %>
-	</div>
-
-	<%= javascript_tag do %>
-	  	window.playlist = <%= raw @playlist.to_json(include: [:tags => { :except => [:created_at, :updated_at]}]) %>
-	  	window.playlist_shadow = [<%= raw @video.to_json(include: [:tags => { :except => [:created_at, :updated_at]}]) %>]
-	<% end %>
+<%= javascript_tag do %>
+	window.playlist = <%= raw @playlist.to_json(include: [:tags => { :except => [:created_at, :updated_at]}]) %>
+	window.playlist_shadow = [<%= raw @video.to_json(include: [:tags => { :except => [:created_at, :updated_at]}]) %>]
+<% end %>

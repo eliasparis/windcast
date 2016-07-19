@@ -22,4 +22,6 @@
 en:
   home: "home"
   mainvideo_from: "From"
-  discover_more : "discover more"
+  discover_more: "discover more"
+  next_video: "next video"
+  previous_video: "previous video"
