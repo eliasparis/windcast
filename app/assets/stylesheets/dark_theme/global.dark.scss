@@ -29,6 +29,7 @@ html.dark{
 			
 			.author_title{
 				color: $pink_text;
+				font-weight: 700;
 			}
 		}
 	}
@@ -38,6 +39,13 @@ html.dark{
 			.data{
 				background-color: $white;
 				color: $dark_text;
+
+				h5#author{
+
+					.author_title{
+						color: $pink_text;
+					}
+				}
 			}
 
 			.icon{

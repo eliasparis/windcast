@@ -7,6 +7,7 @@ $arrow_margin_top: $font-size / 2 * -1;
 
 	.controls_content{
 		display: block;
+		position: relative;
 
 		&.next{
 			margin-left: -6%;
@@ -18,6 +19,19 @@ $arrow_margin_top: $font-size / 2 * -1;
 
 		&.previous{
 			margin-right: -6%;
+
+			.icon{
+				-webkit-transform: rotate(180deg);
+				-moz-transform: rotate(180deg);
+				-ms-transform: rotate(180deg);
+				-o-transform: rotate(180deg);
+				transform: rotate(180deg);
+				margin-top: -21px;
+			}
+
+			.data{
+				margin-left: 15%;
+			}
 		}
 
 		div{
@@ -31,6 +45,18 @@ $arrow_margin_top: $font-size / 2 * -1;
 					text-transform: uppercase;
 				    font-size: 12px;
     				letter-spacing: 2px;
+				}
+
+				.controls_video_title{
+				    margin-top: 5px;
+    				font-weight: 600;
+    				font-size: 18px;
+				}
+
+				h5#author{
+					padding-top: 7px;
+					padding-bottom: 3px; 
+					font-weight: 400;
 				}
 
 				img{
