@@ -10,6 +10,7 @@ html{
 	font-family: 'Helvetica', 'Arial';
 	min-height: 100%;
 	height: 100%;
+	position: relative;
 	
 	body{
 		margin: 15px;
@@ -47,6 +48,11 @@ html{
     		display: inline-block;
 		}
 
+		p{
+			text-overflow: ellipsis;
+			overflow: hidden;
+		}
+
 		@media ($width-device : $tablet) {
 			
 			h1,h2{
@@ -63,6 +69,14 @@ html{
 	@media ($width-device : $tablet) {
 		body{
 			margin: 30px;
+		}
+	}
+
+	@media ($width-device : $desktop) {
+		body{
+			max-width: 720px;
+			margin: 0 auto;
+			padding: 30px;
 		}
 	}
 }
