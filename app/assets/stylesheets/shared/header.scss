@@ -1,3 +1,5 @@
+@import '_mediabreakpoints';
+
 header{
 
 	.logo{
@@ -30,5 +32,15 @@ header{
 				}
 			}
 		}
+	}
+
+	@media ($width-device : $tablet) {
+		
+
+	}
+
+	@media ($width-device : $desktop) {
+
+
 	}
 }

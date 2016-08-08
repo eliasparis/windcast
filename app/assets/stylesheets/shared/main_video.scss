@@ -1,3 +1,5 @@
+@import '_mediabreakpoints';
+
 #video_wrapper{
 
 	.video_element{
@@ -6,4 +8,29 @@
 		-moz-box-shadow: 0px 5px 10px -1px rgba(0, 0, 0, 0.4);
 		box-shadow: 0px 5px 10px -1px rgba(0, 0, 0, 0.4);
 	}
+	
+	@media ($width-device : $tablet) {
+	
+		#titles,#tags{
+			display: inline-block;
+			vertical-align: top;
+		}
+		
+		#titles{
+			width: 60%;
+		}
+
+		#tags{
+			width: 40%;
+			text-align: right;
+			margin: 0;
+			margin-top: 5px;
+		}	
+	}
+
+	@media ($width-device : $desktop) {
+
+
+	}
+
 }

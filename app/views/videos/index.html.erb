@@ -18,15 +18,14 @@
 					<span class="author_title"><%= @video.author%></span>
 				</h5>
 			</a>
-		</div>
-		<div id="tags">
+		</div><div id="tags">
 			<ul>
 				<%@video.tags.each do |tag| %>
-					<a href="tags/<%= tag.id %>">
+					<!-- <a href="tags/<%= tag.id %>"> -->
 						<li class="tag_element<%= rand(1..6) %>">
 							<%= tag.name %>
 						</li>
-					</a>
+					<!-- </a> -->
 				<% end %>
 			</ul>
 		</div>

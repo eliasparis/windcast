@@ -1,3 +1,5 @@
+@import '_mediabreakpoints';
+
 $arrow_top: 50%;
 $font_size: 35px;
 $arrow_margin_top: $font-size / 2 * -1;
@@ -31,7 +33,12 @@ $arrow_margin_top: $font-size / 2 * -1;
 
 			.data{
 				margin-left: 15%;
+				border-top: 1px solid;
 			}
+		}
+
+		&.previous.unactive{
+			display: none;
 		}
 
 		div{
@@ -71,5 +78,61 @@ $arrow_margin_top: $font-size / 2 * -1;
 				margin-top: $arrow_margin_top;
 			}
 		}
+	}
+
+	@media ($width-device : $tablet) {
+		.controls_content{
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+			position: absolute;
+			top: 0;
+
+			&.next{
+				right: 0;
+				margin: 0;
+				border: 0;
+			}
+
+			&.previous{
+				left: 0;
+				margin: 0;
+				border: 0;
+
+				.data{
+					margin: 0;
+					border: 0;
+					border-right: 1px solid;
+				}
+			}
+
+			div.data{
+				width: 100%;
+				position: relative;
+
+				img{
+					display: block;
+					float: right;
+					margin-top: 15px;
+					margin-right: -15px;
+					margin-bottom: -15px;
+				}
+			}
+
+			.icon{
+				display: none;
+			}
+		}
+	}
+
+	@media ($width-device : $desktop) {
+
+
+	}
+}
+
+@media ($width-device : $tablet) {
+	#controls{
+		margin-top: 8%;
 	}
 }

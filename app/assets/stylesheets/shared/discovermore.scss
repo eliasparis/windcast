@@ -1,3 +1,5 @@
+@import '_mediabreakpoints';
+
 $blue: #41e1d0;
 $orange: #ff8d50;
 $pink: #ff1591;
@@ -30,6 +32,12 @@ $pink: #ff1591;
 	h5{
 		color: #979797
 	}
+}
+
+@media ($width-device : $tablet) {
+	#discover_more{
+		display: none;
+	}		
 }
 
 @keyframes arrow{

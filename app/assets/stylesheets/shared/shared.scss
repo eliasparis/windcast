@@ -1,3 +1,5 @@
+@import '_mediabreakpoints';
+
 *{
 	margin: 0;
 	padding: 0;
@@ -42,6 +44,25 @@ html{
     		padding-bottom: 15px;
     		padding-top: 5px;
     		font-size: 0.7em;
+    		display: inline-block;
+		}
+
+		@media ($width-device : $tablet) {
+			
+			h1,h2{
+				font-size: 12px;
+			}
+		}
+
+		@media ($width-device : $desktop) {
+
+
+		}
+	}
+
+	@media ($width-device : $tablet) {
+		body{
+			margin: 30px;
 		}
 	}
 }
