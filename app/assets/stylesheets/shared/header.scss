@@ -1,6 +1,8 @@
 @import '_mediabreakpoints';
 
 header{
+	position: relative;
+	z-index: 2;
 
 	.logo{
 		text-align: center;
