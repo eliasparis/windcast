@@ -1,6 +1,11 @@
 var mainTitle;
+var mainAuthor;
 var	nextTitle;
 var nextThumb;
+var nextAuthor;
+var previousTitle;
+var previousThumb;
+var previousAuthor;
 
 $(document).on('ready', function(){
 
@@ -25,9 +30,17 @@ $(document).on('ready', function(){
 	});
 
 	//Ui elements
+	//Main
 	mainTitle = $("#main_title");
+	mainAuthor = $("#main_author")
+	//Next
 	nextTitle = $("#next_title");
 	nextThumb = $("#next_thumb");
+	nextAuthor = $("#next_author");
+	//Previous
+	previousTitle = $("#previous_title");
+	previousThumb = $("#previous_thumb");
+	previousAuthor = $("#previous_author");
 });
 
 var videoController = {
@@ -102,16 +115,33 @@ var uiManager = {
 	updateUi: function(){
 		var mainData = playlist_shadow[0];
 		var nextData = playlist[0];
+		var previousData = playlist_shadow[1];
 		this.updateMain(mainData);
 		this.updateNext(nextData);
+		this.updatePrevious(previousData);
 	},
 
 	updateMain: function(data){
 		mainTitle.text(data.title);
+		mainAuthor.text(data.author);
 	},
 
 	updateNext: function(data){
 		nextTitle.text(data.title);
+		nextAuthor.text(data.author);
 		nextThumb.attr('src', data.thumbnail);
+	},
+
+	updatePrevious: function(data){
+		var previouAuthorItem = $('#author.previous');
+		if (playlist_shadow[1]) {
+			previousTitle.text(data.title);
+			previousAuthor.text(data.author);
+			previousAuthorItem.removeClass('hidden');
+			previousThumb.attr('src', data.thumbnail);
+		}else{
+			previousAuthorItem.addClass('hidden');
+			previousThumb.attr('src', "");
+		};
 	},
 };
