@@ -8,6 +8,7 @@ var previousThumb;
 var previousAuthor;
 var previousAuthorItem;
 var nextAuthorItem;
+var tagsContainer;
 
 $(document).on('ready', function(){
 
@@ -35,6 +36,7 @@ $(document).on('ready', function(){
 	//Main
 	mainTitle = $("#main_title");
 	mainAuthor = $("#main_author")
+	tagsContainer = $("#tags > ul")
 	//Next
 	nextTitle = $("#next_title");
 	nextThumb = $("#next_thumb");
@@ -129,6 +131,18 @@ var uiManager = {
 	updateMain: function(data){
 		mainTitle.text(data.title);
 		mainAuthor.text(data.author);
+
+		this.updateMainTags(data.tags);
+	},
+
+	updateMainTags: function(tags){
+		
+		tagsContainer.empty();
+
+		for(var index in tags){
+			var tag = $('<li></li>').text(tags[index].name).addClass('tag_element' + (Math.floor(Math.random() * (7 - 1) + 1)));
+			tagsContainer.append(tag);
+		}
 	},
 
 	updateNext: function(data){
