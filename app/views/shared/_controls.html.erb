@@ -4,11 +4,11 @@
 		<div class="data">
 			<p class="controls_title"><%= t('next_video') %></p>
 			<p id="next_title" class="controls_video_title"><%= @playlist[0].title %></p>
-			<h5 id="author">
+			<h5 id="author" class="next">
 				<%= t('mainvideo_from') %>
 				<span class="author_title" id="next_author"><%= @playlist[0].author%></span>
 			</h5>
-			<%= image_tag(@playlist[0].thumbnail, :alt => "rss feed", :width => '250px', :id => "next_thumb") %>
+			<%= image_tag(@playlist[0].thumbnail, :alt => "", :width => '250px', :id => "next_thumb") %>
 		</div>
 
 		<div class="icon-right-open-big icon"></div>

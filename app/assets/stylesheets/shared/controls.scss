@@ -10,6 +10,7 @@ $arrow_margin_top: $font-size / 2 * -1;
 	.controls_content{
 		display: block;
 		position: relative;
+		overflow: hidden;
 
 		&.next{
 			margin-left: -6%;

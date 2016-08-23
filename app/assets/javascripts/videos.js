@@ -6,6 +6,8 @@ var nextAuthor;
 var previousTitle;
 var previousThumb;
 var previousAuthor;
+var previousAuthorItem;
+var nextAuthorItem;
 
 $(document).on('ready', function(){
 
@@ -37,10 +39,12 @@ $(document).on('ready', function(){
 	nextTitle = $("#next_title");
 	nextThumb = $("#next_thumb");
 	nextAuthor = $("#next_author");
+	nextAuthorItem = $('#author.next');
 	//Previous
 	previousTitle = $("#previous_title");
 	previousThumb = $("#previous_thumb");
 	previousAuthor = $("#previous_author");
+	previousAuthorItem = $('#author.previous');
 });
 
 var videoController = {
@@ -54,7 +58,8 @@ var videoController = {
 
 			nextVideo = playlist[0];
 			autoplay = true;
-		}else if(!next){
+
+		}else if(!next && playlist_shadow[1]){
 			
 			nextVideo = playlist_shadow[1];
 			autoplay = false;
@@ -127,13 +132,21 @@ var uiManager = {
 	},
 
 	updateNext: function(data){
-		nextTitle.text(data.title);
-		nextAuthor.text(data.author);
-		nextThumb.attr('src', data.thumbnail);
+
+		if (playlist[0]) {
+			nextTitle.text(data.title);
+			nextAuthor.text(data.author);
+			nextAuthorItem.removeClass('hidden');
+			nextThumb.attr('src', data.thumbnail);
+		}else{
+			nextTitle.text("NO MORE VIDEOS :(");
+			nextThumb.attr('src', '');
+			nextAuthorItem.addClass('hidden');
+		}
 	},
 
 	updatePrevious: function(data){
-		var previouAuthorItem = $('#author.previous');
+		
 		if (playlist_shadow[1]) {
 			previousTitle.text(data.title);
 			previousAuthor.text(data.author);
@@ -142,6 +155,7 @@ var uiManager = {
 		}else{
 			previousAuthorItem.addClass('hidden');
 			previousThumb.attr('src', "");
+			previousTitle.text("NO PREVIOUS VIDEO")
 		};
 	},
 };
